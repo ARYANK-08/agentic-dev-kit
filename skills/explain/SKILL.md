@@ -11,10 +11,30 @@ Goal: the user understands fast. Pick the lightest format that works, then escal
 
 1. **Text** — default. Write in ~80% ASD-STE100 (see rules below).
 2. **Diagram** — when the answer is a flow, structure, sequence, or relationship. Follow the Diagram style below. In the terminal use plain ASCII boxes and arrows; for a richer one, publish via the Artifact tool (`artifact-diagramming` skill).
-3. **HTML page** — when the topic is large, has many parts, or benefits from interaction (tabs, step-through, annotated code). Publish with the Artifact tool (`artifact-design` skill).
+3. **HTML page** — a one-page reference sheet (see below) when the topic is large, has many parts, or benefits from interaction (tabs, step-through, annotated code). Publish with the Artifact tool (`artifact-design` skill).
 4. **Explainer video** — only if the user asks. Use the `faceless-explainer` skill.
 
 Short question → text. "How does X flow / fit together" → diagram. "Explain the whole X" → HTML page. Do not escalate to a bigger format unasked for a small question.
+
+## Reference sheet (HTML explainer style)
+
+For "explain the whole X" or any spec, overview, or system with many parts. One page, lettered panels, like an engineering drawing sheet.
+
+- **Frame:** thin outer border with grid references (columns 1-8, rows A-D) on the edges. White page, dark text.
+- **Panels:** bordered cards in a grid. Each has a dark letter chip (A, B, C), a bold title, and a small mono caption on the right (e.g. "annotated examples").
+- **Panel types, pick what fits:**
+  - Structure: a tree of the parts.
+  - Anatomy: one real example with brackets and short labels under each part.
+  - Table: rows with a status column, check (blue) for right, cross (red) for wrong.
+  - Limits: horizontal bars with a max marker.
+  - History: a timeline with 3-4 dots.
+- **Color:** one meaning each. Red = wrong or not allowed. Blue = approved, or an annotation. Grey = secondary text. Nothing else.
+- **Type:** mono for examples, code, captions, and numbers. Clean sans for titles and body.
+- **Title block** (bottom-right): title, source, owner, sheet "1 of 1".
+- **Content:** every panel shows a real example, never only a definition. Wrong next to right, side by side.
+- Build with the Artifact tool and the `artifact-design` skill. Works in light and dark mode. Must fit a phone width by stacking panels.
+
+Use the Excalidraw style below for flows and paths. Use the sheet style for specs and overviews. Do not mix them on one page.
 
 ## Diagram style (Excalidraw look)
 
@@ -36,14 +56,41 @@ Terminal fallback:
 
 ## Writing rules (ASD-STE100, relaxed)
 
-- One idea per sentence. Max ~20 words (procedures), ~25 (descriptions). Max 6 sentences per paragraph.
-- Active voice. Simple present tense. Avoid -ing forms, perfect tense, and passive.
-- Same word for the same thing, every time. Do not use synonyms for variety.
-- Short common words: "use" not "utilize", "start" not "commence", "before" not "prior to", "about" not "approximately", "fill" not "replenish".
-- Keep articles ("the", "a", "this"). Do not drop them.
-- Max 3 words in a noun cluster. Split longer ones.
-- Commands for steps: "Open the file." Lists for sequences. One instruction per sentence.
-- Warnings first, in a clear simple command, then the reason.
+Limits:
+
+| Item | Max |
+| ---- | --- |
+| Procedural sentence | 20 words |
+| Descriptive sentence | 25 words |
+| Paragraph | 6 sentences, one topic |
+| Noun cluster | 3 words |
+| Instructions per sentence | 1 (except simultaneous actions) |
+
+Verbs:
+
+| Form | Example | OK |
+| ---- | ------- | -- |
+| Command | Close the valve. | yes |
+| Simple present / past / future | The valve closes. | yes |
+| Infinitive | Turn the knob to close it. | yes |
+| Past participle as adjective | The closed valve | yes |
+| Progressive (-ing) | The valve is closing. | no |
+| Perfect | The valve has closed. | no |
+| Passive in procedures | The valve must be closed. | no |
+
+Words:
+
+- Same word for the same thing, every time. No synonyms for variety.
+- Keep "the", "a", "this". Do not drop articles.
+- Short common words: use not utilize, start not commence, before not prior to, about not approximately, fill not replenish, make sure not ensure, to not in order to.
+- Active voice. Simple present tense. Use vertical lists for complex text.
+
+Safety: put the command first, then the reason. `WARNING` = risk of injury. `CAUTION` = risk of damage.
+Example: "WARNING: Do not touch the brake unit until it is cool. Hot parts can cause injury."
+
+Rewrite check (same meaning, 12 words instead of 16):
+- Before: "It is imperative that the operator ensures the hydraulic reservoir is replenished prior to commencing operation."
+- After: "Make sure the hydraulic reservoir is full before you start the operation."
 
 ## Structure
 
@@ -90,7 +137,7 @@ Question: "Explain Redux like I'm 13."
 | -------- | ------ | --- |
 | "Why does this hook re-render?" | Text | One cause, one fix |
 | "How does a request reach the device?" | Diagram: `Browser → app-studio → optics → device` | It is a path with steps |
-| "Explain the whole reports feature" | HTML page | Many parts: list, summary, drill-down |
+| "Explain the whole reports feature" | HTML reference sheet | Many parts: list, summary, drill-down |
 | "Make a video on how login works" | Explainer video | You asked for one |
 
 ### Answer shape
