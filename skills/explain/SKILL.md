@@ -10,11 +10,29 @@ Goal: the user understands fast. Pick the lightest format that works, then escal
 ## Format ladder
 
 1. **Text** — default. Write in ~80% ASD-STE100 (see rules below).
-2. **Diagram** — when the answer is a flow, structure, sequence, or relationship. Use ASCII/Mermaid in the terminal; for a richer one, publish via the Artifact tool (`artifact-diagramming` skill).
+2. **Diagram** — when the answer is a flow, structure, sequence, or relationship. Follow the Diagram style below. In the terminal use plain ASCII boxes and arrows; for a richer one, publish via the Artifact tool (`artifact-diagramming` skill).
 3. **HTML page** — when the topic is large, has many parts, or benefits from interaction (tabs, step-through, annotated code). Publish with the Artifact tool (`artifact-design` skill).
 4. **Explainer video** — only if the user asks. Use the `faceless-explainer` skill.
 
 Short question → text. "How does X flow / fit together" → diagram. "Explain the whole X" → HTML page. Do not escalate to a bigger format unasked for a small question.
+
+## Diagram style (Excalidraw look)
+
+Minimal, hand-drawn, calm. Looks like a whiteboard sketch, not a corporate slide.
+
+- **Shapes:** rounded rectangles, plain arrows, a few ellipses. No shadows, gradients, icons, or 3D.
+- **Lines:** hand-drawn feel. Slight wobble, 2px stroke, round caps. In SVG use an `feTurbulence` + `feDisplacementMap` filter (scale ~1.5); in HTML use `roughjs` from cdnjs.
+- **Colors:** black strokes on white (dark mode: light strokes on near-black). One accent color at most, plus soft pastel fills for grouping.
+- **Text:** hand-style font (`Caveat` or `Kalam` from Google Fonts), 2-4 words per label. Never a sentence in a box.
+- **Layout:** left to right or top to bottom, generous spacing, one arrow per relationship, no crossing lines. Max ~8 boxes; split the diagram if you need more.
+- **Arrows:** label only when the verb is not obvious ("sends token", "401").
+- **Output:** inline SVG in an Artifact for rich diagrams. For editable output, write an `.excalidraw` JSON file the user can open at excalidraw.com.
+
+Terminal fallback:
+
+```
+ [Browser] --token--> [app-studio] --> [optics] --> [Device]
+```
 
 ## Writing rules (ASD-STE100, relaxed)
 
