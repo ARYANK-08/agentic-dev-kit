@@ -6,7 +6,17 @@ Each skill is a folder under `skills/` with a `SKILL.md`.
 
 ## Install a skill
 
-Per project (shared with the team via git):
+One line, no clone (project, shared via git):
+
+```bash
+mkdir -p .claude/skills/explain && curl -fsSL https://raw.githubusercontent.com/ARYANK-08/agentic-dev-kit/main/skills/explain/SKILL.md -o .claude/skills/explain/SKILL.md
+```
+
+For all your projects, use `~/.claude/skills/explain` instead of `.claude/skills/explain`. For another skill, swap `explain` for its name.
+
+Or copy from a clone:
+
+Per project:
 
 ```bash
 mkdir -p .claude/skills
