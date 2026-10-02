@@ -46,3 +46,40 @@ Use when the user says "like I'm 13", "ELI13", "dumb it down", "I don't get it",
 - Build up: what it is, why it exists, how it works, one small example.
 - Never talk down to the user. Simple means clear, not childish.
 - End with a one-line recap.
+
+## Examples
+
+### Bad vs good (technical mode)
+
+Question: "What does the API client do?"
+
+- Bad: "The client leverages an interceptor pattern to facilitate the approximately seamless attachment of authentication credentials prior to dispatching requests."
+- Good: "The client adds your login token to every request. If the server says 401, it signs you out. It also merges identical GET requests into one."
+
+Why: one idea per sentence, active voice, plain words, no stacked nouns.
+
+### Simple mode
+
+Question: "Explain Redux like I'm 13."
+
+> Think of a school office. Every student (component) needs to know today's schedule. Instead of each student keeping their own copy, the office keeps one board (the store). A student who wants a change fills in a form (an action). The office clerk (the reducer) updates the board. Everyone looks at the same board, so nobody has old info.
+>
+> Recap: one shared board, changed only through forms.
+
+### Pick the format
+
+| Question | Format | Why |
+| -------- | ------ | --- |
+| "Why does this hook re-render?" | Text | One cause, one fix |
+| "How does a request reach the device?" | Diagram: `Browser → app-studio → optics → device` | It is a path with steps |
+| "Explain the whole reports feature" | HTML page | Many parts: list, summary, drill-down |
+| "Make a video on how login works" | Explainer video | You asked for one |
+
+### Answer shape
+
+```
+Answer: Login sends you to the SSO portal, which returns a token in the URL.
+How: ProtectedRoute checks the token (src/containers/ProtectedRoute.tsx:12) → AuthContext stores it → client.js sends it with each request.
+Example: open /modules while signed out → redirect to SSO → sign in → back at /modules with ?token=… → URL is cleaned.
+Next: read src/utils/ssoHandoff.js for the trust check.
+```
