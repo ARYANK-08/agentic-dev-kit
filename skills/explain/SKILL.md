@@ -35,3 +35,14 @@ Short question → text. "How does X flow / fit together" → diagram. "Explain 
 4. End with what to look at next, only if useful.
 
 Ground code explanations in the actual repo. Read the files first. Do not explain from memory.
+
+## Simple mode (explain like I'm 13)
+
+Use when the user says "like I'm 13", "ELI13", "dumb it down", "I don't get it", or similar. This replaces the technical register; the format ladder still applies.
+
+- Start with one everyday analogy (a restaurant, a post office, a school). Keep the same analogy to the end.
+- No jargon. If a technical word is needed, say it once, then explain it in plain words.
+- Short sentences. One idea each.
+- Build up: what it is, why it exists, how it works, one small example.
+- Never talk down to the user. Simple means clear, not childish.
+- End with a one-line recap.

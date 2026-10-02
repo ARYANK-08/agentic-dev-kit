@@ -25,7 +25,7 @@ Restart Claude Code. The skill loads when your request matches its `description`
 
 | Skill | Use it for |
 | ----- | ---------- |
-| [explain](skills/explain/SKILL.md) | Clear explanations: simplified English, diagrams, HTML pages, videos |
+| [explain](skills/explain/SKILL.md) | Clear explanations: simplified English, explain-like-I'm-13, diagrams, HTML pages, videos |
 
 ## Add a skill
 
